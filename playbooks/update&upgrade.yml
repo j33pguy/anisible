@@ -3,6 +3,9 @@
   become: true
 
   tasks:
-    - name: Update APT Cache
+    - name: Update APT Cache & Upgrade ALL packages
+      register: updatesys
       apt:
+        name: "*"
+        state: latest
         update_cache: yes
